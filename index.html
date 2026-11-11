@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#26734D">
-<title>Thử Thách Phát Âm Tiếng Anh cùng Khủng Long</title>
+<title>English Dino Speaking Challenge</title>
 <style>
 :root{--sky:#87CEEB;--grass:#65B85C;--forest:#26734D;--yellow:#FFD166;--orange:#FF9F43;--cream:#FFF9ED;--ink:#263238;--muted:#5b6b73;--line:#f0e3c4;
 font-family:"Nunito","Trebuchet MS",ui-rounded,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--cream)}
@@ -66,9 +66,9 @@ h1{margin:0 0 10px;text-align:center;font-size:clamp(17px,4.4vw,30px);font-weigh
 #heard{text-align:center;min-height:30px;font-size:clamp(16px,4vw,20px);font-weight:800;overflow-wrap:anywhere;color:var(--ink)}
 #heard:not(:empty){background:#fff3d6;border:2px dashed var(--orange);border-radius:16px;padding:6px 14px}
 .livetag{min-height:26px;font-weight:900;letter-spacing:1.5px;font-size:15px}
-body[data-mic=rec] .livetag::before{content:"🎧 ĐANG LẮNG NGHE…";color:#b3261e;animation:blink 1s infinite}
-body[data-mic=proc] .livetag::before{content:"⏳ ĐANG XỬ LÝ…";color:#1a5fb4}
-body[data-mic=ready] .livetag::before{content:"🎤 NHẤN VÀO MICRO";color:var(--forest)}
+body[data-mic=rec] .livetag::before{content:"🎧 LISTENING…";color:#b3261e;animation:blink 1s infinite}
+body[data-mic=proc] .livetag::before{content:"⏳ PROCESSING…";color:#1a5fb4}
+body[data-mic=ready] .livetag::before{content:"🎤 TAP THE MICROPHONE";color:var(--forest)}
 @keyframes blink{50%{opacity:.45}}
 #mic{position:relative;width:clamp(96px,26vw,124px);height:clamp(96px,26vw,124px);border-radius:50%;border:6px solid #fff;font-size:clamp(40px,11vw,54px);color:#fff;cursor:pointer;touch-action:manipulation;background:linear-gradient(#ffb45a,var(--orange));box-shadow:0 7px 0 #d97a1f,0 12px 22px #ff9f4366;transition:transform .12s}
 #mic:hover:not(:disabled){transform:translateY(-2px)}#mic:active:not(:disabled){transform:translateY(4px);box-shadow:0 3px 0 #d97a1f}
@@ -119,17 +119,17 @@ progress::-moz-progress-bar{background:var(--orange);border-radius:99px}
   <header class="top">
     <h1><span class="logo">🦖</span> ENGLISH DINO SPEAKING CHALLENGE</h1>
     <div class="stats">
-      <div class="stat">📖 Từ<b id="sWord">0/0</b></div>
-      <div class="stat">⭐ Điểm<b id="sScore">0</b></div>
-      <div class="stat">✅ Đúng<b id="sCorrect">0</b></div>
-      <div class="stat">🎯 Thử<b id="sAtt">0</b></div>
-      <div class="stat">📈 Chính xác<b id="sAcc">0%</b></div>
+      <div class="stat">📖 Word<b id="sWord">0/0</b></div>
+      <div class="stat">⭐ Score<b id="sScore">0</b></div>
+      <div class="stat">✅ Correct<b id="sCorrect">0</b></div>
+      <div class="stat">🎯 Attempts<b id="sAtt">0</b></div>
+      <div class="stat">📈 Accuracy<b id="sAcc">0%</b></div>
     </div>
     <div class="progress" role="progressbar" aria-label="Vocabulary progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progFill"></i></div>
   </header>
 
   <section class="wordcard">
-    <div class="hint">🎧 Nghe và đọc từ để giúp Khủng Long nhảy!</div>
+    <div class="hint">🎧 Listen and say the word to help Dino jump!</div>
     <div id="word">ENGLISH DINO</div>
   </section>
 
@@ -145,7 +145,7 @@ progress::-moz-progress-bar{background:var(--orange);border-radius:99px}
         <path d="M30 246l6-14 6 14zM48 238l6-14 6 14zM66 235l6-14 6 14z" fill="#FF9F43" stroke="#d97a1f" stroke-width="1.5" stroke-linejoin="round"/>
         <g class="leg l2"><rect x="36" y="280" width="16" height="26" rx="7" fill="#3fae48" stroke="#26734D" stroke-width="3"/></g>
         <g class="leg l2"><rect x="76" y="280" width="16" height="26" rx="7" fill="#3fae48" stroke="#26734D" stroke-width="3"/></g>
-        <!-- The neck is now doubled in length -->
+        <!-- The neck is doubled in length -->
         <path d="M82 254 C78 190 84 100 92 42 L110 42 C118 100 122 190 108 262Z" fill="#5fcf66" stroke="#26734D" stroke-width="3" stroke-linejoin="round"/>
         <ellipse cx="66" cy="260" rx="40" ry="27" fill="#5fcf66" stroke="#26734D" stroke-width="3"/>
         <path d="M84 254 C81 190 87 100 94 44 L108 44 C116 100 120 190 106 260Z" fill="#5fcf66"/>
@@ -165,59 +165,59 @@ progress::-moz-progress-bar{background:var(--orange);border-radius:99px}
   <section class="panel controls">
     <div class="livetag" aria-live="polite"></div>
     <div id="heard"></div>
-    <button id="startBtn" class="b" disabled>▶ Bắt đầu Game</button>
+    <button id="startBtn" class="b" disabled>▶ Start Game</button>
     <button id="mic" aria-label="Record" disabled hidden>🎤</button>
     <canvas id="wave" width="360" height="44" hidden></canvas>
-    <button id="stopBtn" class="b s" hidden>⏹ Dừng</button>
-    <div id="micState" class="micstate">🎙️ Microphone chưa bật</div>
-    <div id="status">Đang tải…</div>
+    <button id="stopBtn" class="b s" hidden>⏹ Stop</button>
+    <div id="micState" class="micstate">🎙️ Microphone not activated</div>
+    <div id="status">Loading…</div>
   </section>
 
   <section class="panel">
     <details>
-      <summary>👩‍🏫 Bảng Giáo viên — từ vựng</summary>
+      <summary>👩‍🏫 Teacher panel — vocabulary</summary>
       <div class="row">
-        <select id="preset"><option value="">Chọn một bộ từ…</option></select>
-        <button id="shuffleBtn" class="b s">🔀 Trộn</button>
-        <button id="newBtn" class="b">Game mới với list này</button>
+        <select id="preset"><option value="">Choose a preset…</option></select>
+        <button id="shuffleBtn" class="b s">🔀 Shuffle</button>
+        <button id="newBtn" class="b">New game with this list</button>
       </div>
-      <p class="tip" style="text-align:left">Một từ mỗi dòng. Có thể sửa hoặc xóa thoải mái.</p>
+      <p class="tip" style="text-align:left">One word per line. Edit or delete lines freely.</p>
       <textarea id="list" spellcheck="false"></textarea>
     </details>
   </section>
 
   <section class="panel">
     <details>
-      <summary>📶 Chế độ Offline &amp; Micro (giáo viên)</summary>
-      <div class="row"><button id="chkBtn" class="b">KIỂM TRA CHẾ ĐỘ OFFLINE</button><button id="micOffBtn" class="b s">🎙️ Tắt microphone</button><button id="exitBtn" class="b s">⏹ Thoát game</button></div>
+      <summary>📶 Offline readiness &amp; microphone (teacher)</summary>
+      <div class="row"><button id="chkBtn" class="b">CHECK OFFLINE READINESS</button><button id="micOffBtn" class="b s">🎙️ Turn microphone off</button><button id="exitBtn" class="b s">⏹ Exit game</button></div>
       <div id="badges"></div><ul id="chk"></ul>
     </details>
   </section>
-  <p class="tip">Giọng nói được nhận diện trực tiếp trên trình duyệt của bạn bởi Whisper Tiny.en; không có âm thanh nào được gửi đi bất cứ đâu. Hệ thống chỉ kiểm tra AI có nghe thấy từ mục tiêu không, không kiểm tra độ chính xác của ngữ điệu hay âm tiết.</p>
+  <p class="tip">Speech is recognised locally in your browser by Whisper Tiny.en; no audio is sent anywhere. This checks whether the AI heard the target word, not accent or phoneme accuracy.</p>
 </div>
 
 <div id="loader" class="overlay">
-  <h2>🦖 Đang tải AI Tiếng Anh…</h2>
+  <h2>🦖 Loading English AI…</h2>
   <progress id="prog" max="100" value="0"></progress>
-  <div id="loadMsg">Đang bắt đầu…</div>
-  <button id="retryBtn" class="b" hidden>Thử tải lại</button>
+  <div id="loadMsg">Starting…</div>
+  <button id="retryBtn" class="b" hidden>Retry loading</button>
 </div>
 
 <div id="victory" class="overlay hide">
-  <h2>🏆 Bạn đã làm được!</h2>
+  <h2>🏆 You did it!</h2>
   <div id="vText"></div>
-  <div class="row"><button id="againBtn" class="b">Chơi Lại</button><button id="restartBtn" class="b s">Khởi Động Lại (trộn từ)</button></div>
+  <div class="row"><button id="againBtn" class="b">Play Again</button><button id="restartBtn" class="b s">Restart (reshuffle)</button></div>
 </div>
 
 <script type="module">
 const $=id=>document.getElementById(id);
 const PRESETS={
- 'Mọi ngày 1':'elephant\nbutterfly\nenvironment\nvegetable\nbeautiful\ndangerous\ncomfortable\nrestaurant\nadventure\ncelebrate',
- 'Động vật':'giraffe\ncrocodile\npenguin\nkangaroo\ndolphin\nrabbit\ntiger\nmonkey',
- 'Trường học':'homework\nlibrary\nteacher\nscience\nhistory\nexercise\nlesson\nclassroom'
+ 'Everyday 1':'elephant\nbutterfly\nenvironment\nvegetable\nbeautiful\ndangerous\ncomfortable\nrestaurant\nadventure\ncelebrate',
+ 'Animals':'giraffe\ncrocodile\npenguin\nkangaroo\ndolphin\nrabbit\ntiger\nmonkey',
+ 'School':'homework\nlibrary\nteacher\nscience\nhistory\nexercise\nlesson\nclassroom'
 };
 for(const k in PRESETS){const o=document.createElement('option');o.value=k;o.textContent=k;$('preset').appendChild(o)}
-$('list').value=PRESETS['Mọi ngày 1'];
+$('list').value=PRESETS['Everyday 1'];
 
 let transcriber=null,words=[],idx=0,correct=0,attempts=0,score=0,state='boot';
 let recorder,chunks=[],raf,recStart,lastVoice,heardVoice,sfx;
@@ -225,25 +225,25 @@ let recorder,chunks=[],raf,recStart,lastVoice,heardVoice,sfx;
 /* ---------- Service worker / offline ---------- */
 let swResult='';
 const swReady=(async()=>{
-  if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return 'Service worker không khả dụng (hãy dùng HTTPS hoặc localhost)';
+  if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return 'Service worker unavailable (use HTTPS or localhost)';
   try{
     await navigator.serviceWorker.register('sw.js');
     await navigator.serviceWorker.ready;
     if(!navigator.serviceWorker.controller)await new Promise(r=>{navigator.serviceWorker.addEventListener('controllerchange',r,{once:true});setTimeout(r,4000)});
     return 'ok';
-  }catch(e){console.warn(e);return 'Service worker lỗi: '+(e?.message||e)}
+  }catch(e){console.warn(e);return 'Service worker failed: '+(e?.message||e)}
 })();
 let gen=0;
 
 /* ---------- Model loading ---------- */
 async function loadModel(){
   $('retryBtn').hidden=true;$('startBtn').disabled=true;
-  $('loadMsg').textContent='Đang chuẩn bị hỗ trợ offline…';swResult=await swReady;
+  $('loadMsg').textContent='Preparing offline support…';swResult=await swReady;
   try{navigator.storage?.persist?.()}catch{}
   $('loader').classList.remove('hide');
   let cached=false;
   try{cached=await caches.has('transformers-cache')}catch{}
-  $('loadMsg').textContent=cached?'Đã tìm thấy mô hình trong bộ nhớ. Đang tải…':'Tải lần đầu (cần Internet, ~40 MB)…';
+  $('loadMsg').textContent=cached?'Model found in cache. Loading…':'First-time download (needs Internet, ~40 MB)…';
   try{
     const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2');
     env.allowLocalModels=false;
@@ -251,16 +251,16 @@ async function loadModel(){
       device:'wasm',dtype:'q8',
       progress_callback:p=>{
         if(typeof p.progress==='number')$('prog').value=p.progress;
-        if(p.status)$('loadMsg').textContent=(cached?'Đang tải từ bộ nhớ: ':'Đang tải về: ')+p.status+(p.file?' — '+p.file.split('/').pop():'');
+        if(p.status)$('loadMsg').textContent=(cached?'Loading from cache: ':'Downloading: ')+p.status+(p.file?' — '+p.file.split('/').pop():'');
       }});
     let nowCached=false;try{nowCached=await caches.has('transformers-cache')}catch{}
-    $('status').textContent=nowCached?'Sẵn sàng ✓ Mô hình đã được lưu trên thiết bị (chế độ offline sẽ hoạt động nếu file ứng dụng cũng được lưu).':'Sẵn sàng ✓ (mô hình đã tải; chưa xác nhận lưu, nên hãy giữ kết nối Internet).';
+    $('status').textContent=nowCached?'Ready ✓ Model cached on this device (offline use should work if the app files are cached too).':'Ready ✓ (model loaded; caching not confirmed, so keep Internet on).';
     $('startBtn').disabled=false;
     $('loader').classList.add('hide');
     setState('ready');
   }catch(e){
     console.error(e);
-    $('loadMsg').textContent='Không thể tải mô hình: '+(e?.message||e)+'. Hãy kiểm tra kết nối Internet.';
+    $('loadMsg').textContent='Could not load the model: '+(e?.message||e)+'. Check your Internet connection.';
     $('retryBtn').hidden=false;
   }
 }
@@ -303,7 +303,7 @@ function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;
 function newGame(reshuffle){
   if(reshuffle){const w=shuffle(parseList());$('list').value=w.join('\n')}
   words=parseList();
-  if(!words.length){$('status').textContent='Hãy thêm ít nhất một từ vào bảng giáo viên.';return}
+  if(!words.length){$('status').textContent='Please add at least one word in the teacher panel.';return}
   idx=0;correct=0;attempts=0;score=0;
   $('victory').classList.add('hide');
   showWord();
@@ -317,13 +317,13 @@ function showWord(){
   // reset cactus off-screen without transition, then run toward dino
   cactus.style.transition='none';cactus.style.left='110%';void cactus.offsetWidth;
   dino.className='';scene.classList.add('moving');
-  $('status').textContent='Khủng long đang chạy…';
+  $('status').textContent='The dino is running…';
   const stopAt=Math.max(40,(scene.clientWidth*0.1+dino.clientWidth+16)/scene.clientWidth*100);
   cactus.style.transition='left 2.2s linear';cactus.style.left=stopAt+'%';
   setTimeout(()=>{
     if(g!==gen)return;
     scene.classList.remove('moving');dino.className='idle';
-    $('status').textContent='Nhấn vào micro và đọc từ!';
+    $('status').textContent='Tap the microphone and say the word!';
     setState('waiting');
   },2250);
 }
@@ -334,22 +334,22 @@ const setMic=t=>{$('micState').textContent=t};
 const micLive=()=>micStream&&micStream.active&&micStream.getAudioTracks().some(t=>t.readyState==='live');
 async function getMic(){
   if(micLive())return micStream;           // reuse: no new permission prompt
-  setMic('🎙️ Đang yêu cầu quyền sử dụng micro…');
+  setMic('🎙️ Requesting microphone permission…');
   micStream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
-  micStream.getAudioTracks().forEach(t=>t.addEventListener('ended',()=>{micStream=null;setMic('⚠️ Mất kết nối micro. Nhấn vào 🎤 để kết nối lại.')}));
+  micStream.getAudioTracks().forEach(t=>t.addEventListener('ended',()=>{micStream=null;setMic('⚠️ Microphone disconnected. Tap 🎤 to reconnect.')}));
   try{micSrc?.disconnect()}catch{}
   if(!micCtx||micCtx.state==='closed')micCtx=new AudioContext();
   micSrc=micCtx.createMediaStreamSource(micStream);
   analyser=micCtx.createAnalyser();analyser.fftSize=512;micSrc.connect(analyser);
-  setMic('✅ Micro sẵn sàng');
+  setMic('✅ Microphone ready');
   return micStream;
 }
 function micError(e){
   const n=e?.name;
-  setMic('❌ Lỗi micro');
-  $('status').textContent=n==='NotAllowedError'?'Micro bị chặn. Nhấn vào biểu tượng 🔒 ở thanh địa chỉ, cho phép micro, sau đó nhấn 🎤 lần nữa.'
-    :n==='NotFoundError'?'Không tìm thấy micro. Hãy kết nối và thử lại.'
-    :'Lỗi micro: '+(e?.message||e)+' (cần HTTPS hoặc localhost).';
+  setMic('❌ Microphone error');
+  $('status').textContent=n==='NotAllowedError'?'Microphone is blocked. Click the 🔒 icon in the address bar, allow the microphone, then tap 🎤 again.'
+    :n==='NotFoundError'?'No microphone found. Connect one and try again.'
+    :'Microphone problem: '+(e?.message||e)+' (HTTPS or localhost is required).';
 }
 function releaseMic(msg){
   cancelAnimationFrame(raf);
@@ -357,7 +357,7 @@ function releaseMic(msg){
   micStream?.getTracks().forEach(t=>t.stop());micStream=null;
   try{micSrc?.disconnect()}catch{}
   micCtx?.close().catch(()=>{});micCtx=null;micSrc=null;analyser=null;
-  setMic(msg||'🎙️ Micro tắt');
+  setMic(msg||'🎙️ Microphone off');
 }
 window.addEventListener('pagehide',()=>releaseMic());
 
@@ -373,8 +373,8 @@ async function startRec(){
   recorder.start();
   recStart=performance.now();lastVoice=recStart;heardVoice=false;
   $('mic').classList.add('rec');
-  $('status').textContent='🔴 Đang nghe… đọc từ đi nào.';
-  setMic('🔴 Đang ghi âm');
+  $('status').textContent='🔴 Listening… say the word.';
+  setMic('🔴 Recording');
   setState('recording');
   $('mic').hidden=false;
   loop();
@@ -397,12 +397,12 @@ function stopRec(){
   $('mic').classList.remove('rec');
   if(recorder&&recorder.state!=='inactive')recorder.stop();   // tracks stay live
   setState('thinking');
-  $('status').textContent='🧠 Đang nhận diện trực tiếp…';
+  $('status').textContent='🧠 Recognising locally…';
 }
 $('mic').onclick=startRec;$('stopBtn').onclick=stopRec;
 
 async function recognise(){
-  setMic('⏳ Đang xử lý âm thanh…');
+  setMic('⏳ Processing audio…');
   try{
     if(!heardVoice){fail('empty');return}
     const blob=new Blob(chunks,{type:recorder.mimeType||'audio/webm'});
@@ -416,19 +416,19 @@ async function recognise(){
     const raw=(out?.text||'').replace(/\[[^\]]*\]|\([^)]*\)/g,'').trim();
     if(!raw){fail('empty');return}
     judge(raw);
-  }catch(e){console.error(e);$('status').textContent='Lỗi âm thanh: '+(e?.message||e);setState('waiting')}
+  }catch(e){console.error(e);$('status').textContent='Audio error: '+(e?.message||e);setState('waiting')}
 }
 const clean=s=>s.toLowerCase().replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim();
 function judge(raw){
-  attempts++;setMic('✅ Nhận diện hoàn tất · micro sẵn sàng');
+  attempts++;setMic('✅ Recognition completed · microphone ready');
   const target=clean(words[idx]),heard=clean(raw);
   const tokens=heard.split(' ');
   const ok=heard===target||(!target.includes(' ')&&tokens.length<=3&&tokens.every(t=>t===target));
-  $('heard').textContent='AI nghe thấy: “'+raw+'”';
+  $('heard').textContent='AI heard: “'+raw+'”';
   if(ok){
     correct++;score+=10;updateStats();
-    banner('CHÍNH XÁC!','#7CFF8A');tone([523,659,784,1047]);
-    setState('jumping');$('status').textContent='Tốt lắm!';
+    banner('CORRECT!','#7CFF8A');tone([523,659,784,1047]);
+    setState('jumping');$('status').textContent='Great job!';
     dino.className='jump';scene.classList.add('moving');
     cactus.style.transition='left 1.3s linear';cactus.style.left='-20%';
     setTimeout(((g)=>()=>{
@@ -437,25 +437,25 @@ function judge(raw){
       if(idx>=words.length)finish();else showWord();
     })(gen),1500);
   }else{
-    updateStats();banner('THỬ LẠI!','#ffb74d');tone([300,220],.2,'sawtooth');
-    $('status').textContent='Chưa chính xác. Nhấn vào micro và thử lại.';
+    updateStats();banner('TRY AGAIN!','#ffb74d');tone([300,220],.2,'sawtooth');
+    $('status').textContent='Not quite. Tap the microphone and try again.';
     setState('waiting');
   }
 }
 function fail(kind){
-  setMic('✅ Nhận diện hoàn tất · micro sẵn sàng');
-  $('heard').textContent="Tôi không thể nhận diện giọng nói của bạn. Hãy thử lại.";
-  banner('THỬ LẠI!','#ffb74d');tone([300,220],.2,'sawtooth');
-  $('status').textContent='Nhấn vào micro và nói rõ ràng.';
+  setMic('✅ Recognition completed · microphone ready');
+  $('heard').textContent="I couldn't recognize your voice. Please try again.";
+  banner('TRY AGAIN!','#ffb74d');tone([300,220],.2,'sawtooth');
+  $('status').textContent='Tap the microphone and speak clearly.';
   setState('waiting');
 }
 function finish(){
   scene.classList.remove('moving');dino.className='idle';
   setState('end');
   const acc=attempts?Math.round(correct/attempts*100):0;
-  $('vText').innerHTML=`Điểm cuối cùng: <b>${score}</b><br>Số từ đúng: <b>${correct}/${words.length}</b><br>Tổng số lần thử: <b>${attempts}</b> (${acc}% độ chính xác)`;
+  $('vText').innerHTML=`Final score: <b>${score}</b><br>Correct words: <b>${correct}/${words.length}</b><br>Total attempts: <b>${attempts}</b> (${acc}% accuracy)`;
   $('victory').classList.remove('hide');tone([523,659,784,1047,1319],.18);
-  $('startBtn').textContent='▶ Bắt đầu Game';
+  $('startBtn').textContent='▶ Start Game';
 }
 
 /* ---------- Buttons / teacher panel ---------- */
@@ -465,37 +465,37 @@ $('againBtn').onclick=()=>newGame(false);
 $('restartBtn').onclick=()=>newGame(true);
 $('shuffleBtn').onclick=()=>{$('list').value=shuffle(parseList()).join('\n')};
 $('preset').onchange=e=>{if(PRESETS[e.target.value])$('list').value=PRESETS[e.target.value]};
-$('micOffBtn').onclick=()=>releaseMic('🎙️ Micro đã tắt. Nó sẽ được yêu cầu lại khi cần.');
-$('exitBtn').onclick=()=>{gen++;releaseMic('🎙️ Đã ngắt micro (thoát game)');scene.classList.remove('moving');dino.className='idle';$('victory').classList.add('hide');$('word').textContent='ENGLISH DINO';$('heard').textContent='';$('status').textContent='Đã thoát game. Nhấn Bắt đầu Game để chơi lại.';setState(transcriber?'ready':'boot')};
+$('micOffBtn').onclick=()=>releaseMic('🎙️ Microphone turned off. It will be requested again when needed.');
+$('exitBtn').onclick=()=>{gen++;releaseMic('🎙️ Microphone released (game exited)');scene.classList.remove('moving');dino.className='idle';$('victory').classList.add('hide');$('word').textContent='ENGLISH DINO';$('heard').textContent='';$('status').textContent='Game exited. Press Start Game to play again.';setState(transcriber?'ready':'boot')};
 
 /* ---------- Offline readiness check ---------- */
 const MODEL_FILES=['config.json','generation_config.json','preprocessor_config.json','tokenizer.json','tokenizer_config.json','encoder_model_quantized.onnx','decoder_model_merged_quantized.onnx'];
 const keysOf=async n=>(await (await caches.open(n)).keys()).map(r=>r.url.split('#')[0].split('?')[0]);
 async function checkOffline(){
-  const out=$('chk'),badges=$('badges');out.innerHTML='';badges.textContent='Đang kiểm tra…';
+  const out=$('chk'),badges=$('badges');out.innerHTML='';badges.textContent='Checking…';
   const flags=[];
-  const add=(l,ok,d)=>{flags.push(ok);const li=document.createElement('li');li.textContent=l+': '+(ok?'SẴN SÀNG':'CHƯA SẴN SÀNG')+(d?' — '+d:'');li.style.color=ok?'#126437':'#b3261e';out.appendChild(li);return ok};
+  const add=(l,ok,d)=>{flags.push(ok);const li=document.createElement('li');li.textContent=l+': '+(ok?'READY':'NOT READY')+(d?' — '+d:'');li.style.color=ok?'#126437':'#b3261e';out.appendChild(li);return ok};
   let swOk=false,gameOk=false;
   try{
     swOk=!!navigator.serviceWorker?.controller;
-    add('Service worker điều khiển trang này',swOk,swOk?'':(swResult!=='ok'?swResult:'tải lại trang một lần nữa trực tuyến'));
+    add('Service worker controlling this page',swOk,swOk?'':(swResult!=='ok'?swResult:'reload the page once online'));
     const shell=await keysOf('dino-shell-v3');
     gameOk=shell.some(u=>u.endsWith('/index.html')||u===location.href.split('#')[0].split('?')[0]);
-    add('File game đã được lưu',gameOk,gameOk?'':'chạy bằng HTTPS/localhost và tải lại');
+    add('Game files cached',gameOk,gameOk?'':'run from HTTPS/localhost and reload');
     const lib=await keysOf('dino-lib-v1');
-    add('Transformers.js đã được lưu',lib.some(u=>/transformers/.test(u)&&u.endsWith('.js')),'');
-    add('ONNX Runtime (WASM) đã được lưu',lib.some(u=>u.endsWith('.wasm')),'');
+    add('Transformers.js cached',lib.some(u=>/transformers/.test(u)&&u.endsWith('.js')),'');
+    add('ONNX Runtime (WASM) cached',lib.some(u=>u.endsWith('.wasm')),'');
     const model=(await keysOf('transformers-cache')).filter(u=>u.includes('whisper-tiny.en'));
-    for(const f of MODEL_FILES)add('File mô hình '+f,model.some(u=>u.endsWith('/'+f)),'');
-  }catch(e){add('Truy cập bộ nhớ',false,e?.message||e)}
+    for(const f of MODEL_FILES)add('Model file '+f,model.some(u=>u.endsWith('/'+f)),'');
+  }catch(e){add('Cache access',false,e?.message||e)}
   if(transcriber){
-    try{await transcriber(new Float32Array(16000));add('Kiểm tra phỏng đoán',true,'chạy trên 1 giây im lặng với mô hình đã tải')}
-    catch(e){add('Kiểm tra phỏng đoán',false,e?.message||e)}
-  }else add('Kiểm tra phỏng đoán',false,'mô hình chưa được tải');
+    try{await transcriber(new Float32Array(16000));add('Inference test',true,'ran on 1 s of silence with the model loaded')}
+    catch(e){add('Inference test',false,e?.message||e)}
+  }else add('Inference test',false,'model not loaded yet');
   const all=flags.every(Boolean);
   const bd=(t,ok)=>`<span class="badge ${ok?'ok':'no'}">${t}</span>`;
-  badges.innerHTML=bd('GAME SẴN SÀNG',swOk&&gameOk)+bd('MÔ HÌNH AI SẴN SÀNG',!!transcriber)+bd('OFFLINE SẴN SÀNG',all)+
-   '<div class="tip" style="text-align:left">'+(all?'Tất cả các file cần thiết đều nằm trong bộ nhớ trình duyệt. Để xác nhận, hãy ngắt Internet, tải lại và chơi một từ.':'Một số file cần thiết bị thiếu. Hãy giữ kết nối trực tuyến, tải lại trang và để mô hình tải xong, sau đó kiểm tra lại.')+'</div>';
+  badges.innerHTML=bd('GAME READY',swOk&&gameOk)+bd('AI MODEL READY',!!transcriber)+bd('OFFLINE READY',all)+
+   '<div class="tip" style="text-align:left">'+(all?'All required files are in the browser cache. To confirm, disconnect the Internet, reload, and play one word.':'Some required files are missing. Stay online, reload the page and let the model finish loading, then check again.')+'</div>';
 }
 $('chkBtn').onclick=checkOffline;
 updateStats();setState('boot');
@@ -513,7 +513,7 @@ loadModel();
   };
   const mic=()=>{
     const t=$('micState').textContent;
-    document.body.dataset.mic=/Đang yêu cầu/.test(t)?'asking':/🔴/.test(t)?'rec':/Đang xử lý/.test(t)?'proc':/hoàn tất/.test(t)?'done':/❌|⚠️/.test(t)?'err':/sẵn sàng/i.test(t)?'ready':'off';
+    document.body.dataset.mic=/Requesting/.test(t)?'asking':/🔴/.test(t)?'rec':/Processing/.test(t)?'proc':/completed/.test(t)?'done':/❌|⚠️/.test(t)?'err':/ready/i.test(t)?'ready':'off';
   };
   const o={childList:true,characterData:true,subtree:true};
   ['sWord','sCorrect'].forEach(i=>new MutationObserver(prog).observe($(i),o));
